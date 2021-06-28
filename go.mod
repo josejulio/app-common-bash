@@ -1,4 +1,4 @@
-module app-common-bash
+module github.com/RedHatInsights/app-common-bash
 
 go 1.16
 
