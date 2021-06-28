@@ -1,4 +1,4 @@
-module envvar
+module app-common-bash
 
 go 1.16
 
