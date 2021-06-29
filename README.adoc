@@ -1,0 +1,13 @@
+= app-common-bash
+
+This library is used to create a script that will export all the necessary environment variables to use with Clowder.
+
+== Usage
+
+To use the library, simply run the ``app-common-bash`` command and then invoke the bash ``source`` command to load the environment variables, as in the example below.
+
+[source,shell]
+$ app-common-bash
+$ source vars.sh
+$ echo $CLOWDER_PUBLICPORT
+8000
