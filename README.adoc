@@ -4,10 +4,10 @@ This library is used to create a script that will export all the necessary envir
 
 == Usage
 
-To use the library, simply run the ``app-common-bash`` command and then invoke the bash ``source`` command to load the environment variables, as in the example below.
+To use the library, simply run the ``app-common-bash`` command and then pip the script output to their desired destination.
 
 [source,shell]
-$ app-common-bash
+$ ./app-common-bash > vars.sh
 $ source vars.sh
 $ echo $CLOWDER_PUBLICPORT
 8000

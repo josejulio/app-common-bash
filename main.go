@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"fmt"
 	"os"
 	"reflect"
@@ -19,13 +20,7 @@ func main() {
 
 	v := reflect.ValueOf(clowder.LoadedConfig)
 
-	f, err := os.Create("vars.sh")
-
-	if err != nil {
-		panic(err)
-	}
-
-	defer f.Close()
+	f := &bytes.Buffer{}
 
 	w := bufio.NewWriter(f)
 	w.WriteString("#!/bin/bash\n\n")
@@ -33,6 +28,7 @@ func main() {
 	req_print("CLOWDER", v, w)
 
 	w.Flush()
+	fmt.Print(f.String())
 }
 
 func exportVariable(w *bufio.Writer, name string, value string) {
