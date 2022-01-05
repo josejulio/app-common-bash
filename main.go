@@ -72,6 +72,12 @@ func req_print(prefix string, ob reflect.Value, w *bufio.Writer) {
 		return
 	}
 
+	var stringType = reflect.TypeOf("")
+	if ob.Type().ConvertibleTo(stringType) {
+		exportVariable(w, strings.ToUpper(prefix), reflect.Value(ob).String())
+		return
+	}
+
 	for i := 0; i < ob.NumField(); i++ {
 		newObj := reflect.ValueOf(ob.Field(i).Interface())
 		req_print(prefix+"_"+ob.Type().Field(i).Name, newObj, w)
